@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Editor de imágenes</title>
+</head>
+
+<body>
+    <form class="form-imagen">
+        <label class="label-imagen">Seleccione o arrastre su imagen:</label>
+        <input id="input-imagen" type="file" accept="image/*" required>
+    </form>
+
+    <i class="bi bi-scissors"></i>
+
+    <div class="contenedor-imagen">
+        <img id="imagen-descargar" class="imagen" src="" alt="Imagen">
+        <img class="imagen-default" src="imagen.png" alt="Imagen Default">
+        <p class="leyenda-contenedor">Arrastre una imagen aqui</p>
+    </div>
+
+    <div class="menu-propiedades">
+
+        <button class="boton-propiedades transform">
+            <i class="bi bi-sliders2"></i>
+        </button>
+
+        <button class="boton-propiedades color">
+            <i class="bi bi-palette"></i>
+        </button>
+
+        <button class="boton-propiedades effects">
+            <i class="bi bi-image"></i>
+        </button>
+
+        <button class="boton-propiedades filters">
+            <i class="bi bi-brightness-high"></i>
+        </button>
+
+        <button class="boton-propiedades restore">
+            <i class="bi bi-arrow-clockwise"></i>
+        </button>
+    </div>
+
+    
+
+    <div class="container-popsovers">
+        <div class="popover pop1">Transf.</div>
+        <div class="popover pop2">Color</div>
+        <div class="popover pop3">Effects</div>
+        <div class="popover pop4">Filters</div>
+        <div class="popover pop5">Restore</div>
+    </div>
+
+    <div class="container-menus">
+        <div class="menu-transformar menu">
+
+            <div class="resize propiedad">
+                <p>Resize</p>
+                <div class="rango">
+                    <input type="range" id="input-resize" min="0.1" max="2" value="1" step="0.01"><p class="rango-resize">1</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="rotate propiedad">
+                <p>Rotate</p>
+                <div class="rango">
+                    <input type="range" id="input-rotate" min="-180" max="180" value="0" step="5"><p class="rango-rotate">0</p>
+                </div>
+                
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="skew propiedad">
+                <p>Skew</p>
+                <div class="rango">
+                    <input type="range" id="input-skew" min="-50" max="50" value="0" step="2"><p class="rango-skew">0</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="border propiedad">
+                <p>Border</p>
+                <div class="rango">
+                    <input type="range" id="input-border" min="0" max="30" value="0" step="1"><p class="rango-border">0</p>
+                </div>
+                <div class="rango-color">
+                    <input class="border-color" type="color" value="#000000">
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="radius propiedad">
+                <p>Radius</p>
+                <div class="rango">
+                    <input type="range" id="input-radius" min="0" max="50" value="0" step="1"><p class="rango-radius">0</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="shadow propiedad">
+                <p>Shadow</p>
+                <div class="rango">
+                    <input type="range" id="input-shadow" min="-70" max="70" value="0" step="1"><p class="rango-shadow">0</p>
+                </div>
+                <div class="rango-color">
+                    <input class="shadow-color" type="color" value="#000000">
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="flip propiedad">
+                <p>Flip</p>
+                <div class="flip-botones">
+                    <div class="flip-horizontal">
+                        <i class="bi bi-arrows-collapse"></i>
+                    </div>
+                    <div class="flip-vertical">
+                        <i class="bi bi-arrows-collapse"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+
+        </div>
+
+
+        <div class="menu-color menu">
+
+            <div class="hue-rotate propiedad">
+                <p>Hue</p>
+                <div class="rango">
+                    <input type="range" id="input-hue-rotate" min="0" max="360" value="0" step="10"><p class="rango-hue-rotate">0</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+
+            <div class="opacity propiedad">
+                <p>Opacity</p>
+                <div class="rango">
+                    <input type="range" id="input-opacity" min="0" max="1" value="1" step="0.01"><p class="rango-opacity">1</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="saturate propiedad">
+                <p>Saturate</p>
+                <div class="rango">
+                    <input type="range" id="input-saturate" min="0" max="6" value="1" step="0.1"><p class="rango-saturate">1</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+        </div>
+
+
+        <div class="menu-effects menu">
+
+            <div class="brightness propiedad">
+                <p>Brightness</p>
+                <div class="rango">
+                    <input type="range" id="input-brightness" min="0" max="5" value="1" step="0.01"><p class="rango-brightness">1</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="contrast propiedad">
+                <p>Contrast</p>
+                <div class="rango">
+                    <input type="range" id="input-contrast" min="0" max="3" value="1" step="0.01"><p class="rango-contrast">1</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+        </div>
+
+
+        <div class="menu-filters menu">
+
+            <div class="invert propiedad">
+                <p>Invert</p>
+                <div class="rango">
+                    <input type="range" id="input-invert" min="0" max="1" value="0" step="0.01"><p class="rango-invert">0</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="sepia propiedad">
+                <p>Sepia</p>
+                <div class="rango">
+                    <input type="range" id="input-sepia" min="0" max="1" value="0" step="0.01"><p class="rango-sepia">0</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="grey-scale propiedad">
+                <p>Grey Scale</p>
+                <div class="rango">
+                    <input type="range" id="input-grey-scale" min="0" max="1" value="0" step="0.01"><p class="rango-grey-scale">0</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="blur propiedad">
+                <p>Blur</p>
+                <div class="rango">
+                    <input type="range" id="input-blur" min="0" max="30" value="0" step="0.1"><p class="rango-blur">0</p>
+                </div>
+            </div>
+
+            <div class="separador"></div>
+
+        </div>
+
+
+        <div class="menu-restore menu">
+
+            
+
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
